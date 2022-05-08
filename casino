@@ -9,18 +9,18 @@ class Casino{
     
     public:
     int guess;
-
+    char choice;
     int dice;
 
     void entry(){
- cout<<"\n=======================================================================================================================";
- cout<<"\n   CCCCC      A        SSSSSSSSS   IIIIIIIII  NN     NN    OOOOOOOO     ";
- cout<<"\n CC          A  A      SS             III     NN N   NN   OO      OO    ";
- cout<<"\nCC          A    A     SSSSSSSSS      III     NN  N  NN   OO      OO    ";
- cout<<"\n CC        AAAAAAAA           SS      III     NN   N NN   OO      OO    ";
- cout<<"\n   CCCCC  A        A   SSSSSSSSS   IIIIIIIII  NN     NN    OOOOOOOO     ";
- cout<<"\n=======================================================================================================================\n";
- 
+    out<<"\n=======================================================================================================================";
+    cout<<"\n   CCCCC      A        SSSSSSSSS   IIIIIIIII  NN     NN    OOOOOOOO     ";
+    cout<<"\n CC          A  A      SS             III     NN N   NN   OO      OO    ";
+    cout<<"\nCC          A    A     SSSSSSSSS      III     NN  N  NN   OO      OO    ";
+    cout<<"\n CC        AAAAAAAA           SS      III     NN   N NN   OO      OO    ";
+    cout<<"\n   CCCCC  A        A   SSSSSSSSS   IIIIIIIII  NN     NN    OOOOOOOO     ";
+    cout<<"\n=======================================================================================================================\n";
+
     }
 
     void Calc(){
@@ -31,7 +31,7 @@ class Casino{
 
         
         do{
-            cout<<"Enter the Bit amount :";
+            cout<<" Enter the Bit amount :";
             cin>>bitamt;
             if(bitamt > amount){
                 cout<<"the bitting amount should be less than the amount"<<" ";
@@ -50,8 +50,8 @@ class Casino{
         dice = rand()%10 +1;
 
         if(dice == guess){
-            cout<<"\n congo you guessed the right number ";
-            cout<<"\n you won : "<<bitamt;
+            cout<<"\n congo you guessed the right number "<<" ";
+            cout<<" you won : "<<bitamt;
             amount = bitamt + amount;
             cout<<"\n your new amount is : "<<amount;
         }
@@ -65,40 +65,26 @@ class Casino{
                 cout<<"\n you don't have money to play";
                 break;
             }
-    }
+        cout<<"\n do you wanna play again? (y/n) :";
+        cin>>choice;
 
-        void Results(){
-        cout<<"\n===============================================================================================\n";
-        cout << "Thanks For Playing Game Again Your Current Amount Is " <<amount ;
-        cout<<"\n===============================================================================================\n";
-    }
+        }while(choice == 'y' || choice == 'Y');
 
+    cout<<"\n===============================================================================================\n";
+    cout << "Thanks For Playing . Your Current Amount Is :" <<amount ;
+    cout<<"\n===============================================================================================\n";
+    }
 };
+
 
 
 int main()
 {
-        string name;
-        char choice;
-        Casino c1;
-        c1.entry();
-        cout<<"type your name :";
-        getline(cin,name);
-        while(choice != 'n'){
-                cout<<"do you wanna play again? (y/n) :";
-                cin>>choice;
-                if(choice == 'y'){
-                c1.Calc();
-                }
-                
-                else if(choice == 'n'){
-                c1.Results();
-                }
-                else{
-                        cout<<"\n please type either in Y or n ";
-                }
-        }
-
-        
-        return 0;
+    string name;
+    Casino c1;
+    c1.entry();
+    cout<<"type your name :";
+    getline(cin,name);
+    c1.Calc();
+    return 0;
 }
